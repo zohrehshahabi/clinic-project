@@ -1,22 +1,17 @@
-package ir.mapsa.clinic.model;
+package ir.mapsa.clinic.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import ir.mapsa.clinic.base.BaseEntity;
+import lombok.*;
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
 
+@Table(name="appointments")
 @Entity
-@Table(name = "T_appointment")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Appointment {
-
+@NoArgsConstructor
+@Builder
+public class AppointmentEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "app_id")
@@ -28,7 +23,6 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "app_pat_id")
-    private Patient patient;
-
+    private PatientEntity patient;
 
 }
