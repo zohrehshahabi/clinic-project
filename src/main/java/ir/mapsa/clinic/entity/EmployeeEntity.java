@@ -26,20 +26,18 @@ public class EmployeeEntity extends BaseEntity {
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotBlank
+
     private String phoneNumber;
     @NotBlank
     private String email;
-    @NotNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @ManyToOne
     @JoinColumn(name = "emp_dep_id")
-    public DepartmentEntity department;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "employee_roles",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<RoleEntity> roles = new HashSet<>();
+    private DepartmentEntity department;
+
+    @OneToOne(targetEntity = ClinicUser.class)
+    private ClinicUser clinicUser;
+
 
 }

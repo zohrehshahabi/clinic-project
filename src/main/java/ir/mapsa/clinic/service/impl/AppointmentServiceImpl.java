@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class AppointmentServiceImpl extends BaseServiceImpl<AppointmentEntity,
         Long, AppointmentRepository> implements AppointmentService {
-
     public AppointmentServiceImpl(AppointmentRepository repository) {
         super(repository);
     }

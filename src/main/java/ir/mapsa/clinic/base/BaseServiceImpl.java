@@ -29,11 +29,10 @@ public class BaseServiceImpl<T extends BaseEntity,ID extends Serializable,
 
     @Override
     public void deleteById(ID id) throws BaseException {
-        try {
-            repository.deleteById(id);
-        } catch (EmptyResultDataAccessException e) {
-            throw new NotFoundExceptions("your entity not found");
+        if(id==null){
+            throw new IdNullException("id in null");
         }
+        repository.deleteById(id);
     }
 
 

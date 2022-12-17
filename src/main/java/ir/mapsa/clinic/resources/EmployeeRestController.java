@@ -37,12 +37,14 @@ public class EmployeeRestController {
     private final DepartmentService departmentService;
 
 
+
+
     @PostMapping
     public EmployeeDto createEmployee(@Valid @RequestBody EmployeeIdDto employeeIdDto) throws BaseException {
         EmployeeEntity employeeEntity = employeeIdMapper.convertDtoToEntity(employeeIdDto);
-        Set<RoleEntity> roles = new HashSet<>();
-        roles.add(roleService.findById(employeeIdDto.getRoleId()));
-        employeeEntity.setRoles(roles);
+//        Set<RoleEntity> roles = new HashSet<>();
+//        roles.add(roleService.findById(employeeIdDto.getRoleId()));
+//        employeeEntity.setRoles(roles);
         employeeEntity.setDepartment(departmentService.findById(employeeIdDto.getDepartmentId()));
         return employeeMapper.convertEntityToDto(employeeService.saveOrUpdate(employeeEntity));
     }
@@ -68,9 +70,9 @@ public class EmployeeRestController {
     @PutMapping
     public EmployeeDto update(@Valid @RequestBody EmployeeIdDto employeeIdDto) throws BaseException {
         EmployeeEntity employeeEntity = employeeIdMapper.convertDtoToEntity(employeeIdDto);
-        Set<RoleEntity> roles = new HashSet<>();
-        roles.add(roleService.findById(employeeIdDto.getRoleId()));
-        employeeEntity.setRoles(roles);
+//        Set<RoleEntity> roles = new HashSet<>();
+//        roles.add(roleService.findById(employeeIdDto.getRoleId()));
+//        employeeEntity.setRoles(roles);
         return employeeMapper.convertEntityToDto(employeeService.saveOrUpdate(employeeEntity));
     }
 

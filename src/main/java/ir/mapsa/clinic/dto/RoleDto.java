@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Getter
 @ToString
-public class RoleDto extends BaseDto {
+public class RoleDto {
     private Long id;
     @NotNull
     private ERole role;

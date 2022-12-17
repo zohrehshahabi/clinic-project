@@ -31,9 +31,7 @@ public class EmployeeDto extends BaseDto {
     @NotNull
     private Gender gender;
 
-    public DepartmentEntity department;
-
-    private Set<RoleDto> roles;
+    private DepartmentEntity department;
 
 
 }

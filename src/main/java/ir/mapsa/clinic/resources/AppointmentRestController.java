@@ -9,7 +9,6 @@ import ir.mapsa.clinic.mapper.AppointmentMapper;
 import ir.mapsa.clinic.service.AppointmentService;
 import ir.mapsa.clinic.service.PatientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,10 +23,10 @@ public class AppointmentRestController {
     private final AppointmentService appointmentService;
 
     @PostMapping
-    public void createAppointment(@RequestBody AppointmentIdDto appointmentIdDto) throws BaseException {
+    public AppointmentDto createAppointment(@RequestBody AppointmentIdDto appointmentIdDto) throws BaseException {
         AppointmentEntity appointmentEntity = appointmentIdMapper.convertDtoToEntity(appointmentIdDto);
         appointmentEntity.setPatient(patientService.findById(appointmentIdDto.getPatientId()));
-        appointmentMapper.convertEntityToDto(appointmentService.saveOrUpdate(appointmentEntity));
+       return appointmentMapper.convertEntityToDto(appointmentService.saveOrUpdate(appointmentEntity));
     }
     @GetMapping
     public List<AppointmentDto> findAppointments() throws BaseException{
@@ -45,9 +44,9 @@ public class AppointmentRestController {
         appointmentEntity.setPatient(patientService.findById(appointmentIdDto.getPatientId()));
         return appointmentMapper.convertEntityToDto(appointmentService.saveOrUpdate(appointmentEntity));
     }
-
     @DeleteMapping("/{id}")
     public void deleteAppointmentById(@PathVariable Long id)throws BaseException{
+        appointmentService.findById(id);
         appointmentService.deleteById(id);
     }
 
