@@ -2,6 +2,11 @@ package ir.mapsa.clinic.resources;
 
 import ir.mapsa.clinic.dto.ScheduleDto;
 import ir.mapsa.clinic.dto.ScheduleIdDto;
+<<<<<<< HEAD
+=======
+import ir.mapsa.clinic.entity.EmployeeEntity;
+import ir.mapsa.clinic.entity.RoleEntity;
+>>>>>>> 7bbbaa179b3e50a52e534767a57f1f5f7f1b9453
 import ir.mapsa.clinic.entity.ScheduleEntity;
 import ir.mapsa.clinic.exceptions.BaseException;
 import ir.mapsa.clinic.mapper.ScheduleIdMapper;
@@ -13,7 +18,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+<<<<<<< HEAD
 import java.util.List;
+=======
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+>>>>>>> 7bbbaa179b3e50a52e534767a57f1f5f7f1b9453
 
 @RestController
 @RequestMapping("/schedules")

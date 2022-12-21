@@ -29,6 +29,7 @@ public class ClinicUser extends BaseEntity {
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
+<<<<<<< HEAD
     private Set<Role> roles = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -41,4 +42,11 @@ public class ClinicUser extends BaseEntity {
         this.password = password;
     }
 
+=======
+    private Set<RoleEntity> roles = new HashSet<>();
+
+    @OneToOne(targetEntity = EmployeeEntity.class)
+    private EmployeeEntity employee;
+
+>>>>>>> 7bbbaa179b3e50a52e534767a57f1f5f7f1b9453
 }

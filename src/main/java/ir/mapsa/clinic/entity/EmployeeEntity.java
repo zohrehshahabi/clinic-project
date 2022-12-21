@@ -36,7 +36,14 @@ public class EmployeeEntity extends BaseEntity {
     @JoinColumn(name = "emp_dep_id")
     private DepartmentEntity department;
 
+<<<<<<< HEAD
     @OneToOne(mappedBy = "employee")
     private ClinicUser clinicUser;
 
+=======
+    @OneToOne(targetEntity = ClinicUser.class)
+    private ClinicUser clinicUser;
+
+
+>>>>>>> 7bbbaa179b3e50a52e534767a57f1f5f7f1b9453
 }
